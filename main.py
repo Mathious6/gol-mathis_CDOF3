@@ -40,6 +40,11 @@ def update_grid(grid):
     return new_grid
 
 
+def all_cells_dead(grid):
+    """Check if all cells in the grid are dead."""
+    return all(cell == 0 for row in grid for cell in row)
+
+
 def main():
     mode = int(input("To load grid size dynamically type 1, otherwise enter another number: "))
     if mode == 1 :
@@ -52,9 +57,11 @@ def main():
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         print_grid(grid)
+        if all_cells_dead(grid):
+            print("All cells are dead. Game Over.")
+            break
         grid = update_grid(grid)
-        time.sleep(0.5)
-
+        time.sleep(0.1)
 
 if __name__ == "__main__":
     main()
