@@ -1,8 +1,7 @@
 import time
 import os
 import random
-
-
+from grid import get_user_grid_size, get_terminal_size
 def create_grid(rows, cols):
     return [[random.randint(0, 1) for _ in range(cols)] for _ in range(rows)]
 
@@ -42,7 +41,12 @@ def update_grid(grid):
 
 
 def main():
-    rows, cols = 10, 10
+    mode = int(input("To load grid size dynamically type 1, otherwise enter another number: "))
+    if mode == 1 :
+        rows, cols = get_terminal_size()
+    else : 
+        rows, cols = get_user_grid_size()
+    
     grid = create_grid(rows, cols)
 
     while True:
