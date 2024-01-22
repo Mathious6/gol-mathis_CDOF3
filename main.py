@@ -45,6 +45,17 @@ def main():
     rows, cols = 10, 10
     grid = create_grid(rows, cols)
 
+    print("Please enter a marker for dead cells. The default is .")
+    dead = input("Dead marker : ")
+    if dead == '':
+        dead = '.'
+
+
+    print("Please enter a marker for alive cells. The default is #")
+    live = input("Live marker : ")
+    if live == '':
+        live = '#'
+
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
         print_grid(grid)
