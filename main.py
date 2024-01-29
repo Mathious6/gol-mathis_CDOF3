@@ -7,9 +7,9 @@ def create_grid(rows, cols):
     return [[random.randint(0, 1) for _ in range(cols)] for _ in range(rows)]
 
 
-def print_grid(grid):
+def print_grid(grid, dead, live):
     for row in grid:
-        print('.'.join('#' if cell else ' ' for cell in row))
+        print('.'.join(live if cell else dead for cell in row))
 
 
 def get_neighbour_count(grid, row, col):
@@ -45,9 +45,20 @@ def main():
     rows, cols = 10, 10
     grid = create_grid(rows, cols)
 
+    print("Please enter a marker for dead cells or press enter for default. The default is an empty space")
+    dead = input("Dead marker : ")
+    if dead == '':
+        dead = ' '
+
+
+    print("Please enter a marker for alive cells. The default is #")
+    live = input("Live marker : ")
+    if live == '':
+        live = '#'
+
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
-        print_grid(grid)
+        print_grid(grid, dead, live)
         grid = update_grid(grid)
         time.sleep(0.5)
 
