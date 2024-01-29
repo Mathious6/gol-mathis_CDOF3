@@ -3,6 +3,7 @@
 This project recreates John Horton Conway's renowned Game of Life, utilizing a console-based approach with '.' for dead 
 cells and '#' for live cells. It serves as an educational tool for exploring decentralized technologies, with a focus 
 on mastering Git. 🌐💻
+https://conwaylife.com/
 
 ## Table of Contents
 
